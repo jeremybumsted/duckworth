@@ -5,7 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "node-opus": "^0.3.3"
+    "forever": "^2.0.0",
+    "node-gyp": "^5.0.7",
+    "opusscript": "0.0.7",
+    "prism-media": "^1.1.0",
+    "rebuild": "^0.1.2",
+    "upstarter": "^0.2.6"
   },
   "devDependencies": {},
   "scripts": {
