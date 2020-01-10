@@ -22,7 +22,7 @@ module.exports = {
       if (!command) {
         return message.channel.send('No such command :(');
       }
-      data.push(`${command.name}: ${command.description}`);
+      data.push(`${command.name}:\n${command.description}`);
       data.push(`Usage: ${prefix}${command.name} ${command.usage}`);
       message.channel.send(data, {split: true});
   },
