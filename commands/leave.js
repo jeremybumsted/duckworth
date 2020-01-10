@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'leave',
 	description: 'Tell Duckworth to disconnect',
-	usage: "Usage: `?leave` to tell Duckworth to leave if it is connected to a voice channel",
+	usage: "`?leave` to tell Duckworth to leave if it is *currently* connected to a voice channel",
 	execute(message, args) {
     if (!message.guild) return;
     if (message.member.voiceChannel) {

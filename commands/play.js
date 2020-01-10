@@ -2,7 +2,6 @@
 //requiring path and fs modules
 const path = require('path');
 const fs = require('fs');
-const Discord = require('discord.js');
 //joining path of directory
 const directoryPath = path.join(__dirname, '../assets');
 //passsing directoryPath and callback function
@@ -20,20 +19,12 @@ var soundboard = fs.readdirSync(directoryPath, function (err, files) {
     // Once we have all the files, we'll format them nicely:
     return sounds;
 });
-soundboard = soundboard.toString().replace(/.mp3/g, "").split(',').join('\n');
+soundboard = soundboard.toString().replace(/.mp3/g, "");
 
-/*TODO: create embed for help command
-const embed = new Discord.RichEmbed()
-  .setColor('#5b6ee1')
-  .setTitle('Play')
-  .setDescription('Play a sound from the list of available sounds below.')
-  .addField('Available Sounds', soundboard)
-  .addField('Usage', "`?play [soundname]`");
-*/
 /* actual command */
 module.exports = {
   name:'play',
-	description: `Play a sound. Here are the currently available sounds:\n${soundboard}`,
+	description: `Play a sound from the currently available sounds:\n\`\`\`${soundboard}\`\`\``,
 	usage: "`?play [soundname]`",
 	execute(message, args) {
     if (!message.guild) return;

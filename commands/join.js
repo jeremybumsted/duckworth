@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'join',
 	description: 'Have Duckworth join the channel you are currently connected to.',
-	usage: "Usage: `?join` to join to your currently connected channel",
+	usage: "`?join` to join to your currently connected channel",
 	execute(message, args) {
 		if (!message.guild) return;
     if (message.member.voiceChannel) {
