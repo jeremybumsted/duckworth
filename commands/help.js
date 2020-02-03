@@ -2,9 +2,9 @@ const {prefix} = require('../config.json');
 const Discord = require('discord.js');
 module.exports = {
   name: 'help',
-  description: "List information about all available commands",
+  description: "Show the help text for duckworth",
   aliases: ['commands'],
-  usage: '[command name]',
+  usage: `\`${prefix}help or ${prefix}help [command]\``,
   execute(message, args) {
       const { commands } = message.client;
 
