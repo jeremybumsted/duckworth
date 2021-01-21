@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o k8s/
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: duckworth
+  name: duckworth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: duckworth
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -o k8s/
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: duckworth
+    spec:
+      containers:
+        - args:
+            - node
+            - index.js
+          image: duckworth
+          imagePullPolicy: Never
+          name: duckworth
+          ports:
+            - containerPort: 8000
+          resources: {}
+      restartPolicy: Always
+status: {}

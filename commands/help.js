@@ -9,11 +9,9 @@ module.exports = {
       const { commands } = message.client;
 
       if (!args.length) {
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
           .setColor('#5b6ee1')
-          .attachFiles(['./images/duckworth-new.png'])
           .setTitle('Here\'s what I can do:')
-          .setAuthor('Duckworth', 'attachment://duckworth-new.png')
           .addField('Available Commands', commands.map(command => command.name).join(', '))
           .addField('More Info', `Use \`${prefix}help [command name]\` to get more information on a specific command.`)
           .addField('Found a bug?', '[Submit an issue](https://git.io/JvvdO)');
@@ -26,7 +24,7 @@ module.exports = {
       if (!command) {
         return message.channel.send('No such command :(');
       }
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
         .setColor('#5b6ee1')
         .setTitle(`${command.name}`)
         .setDescription(`${command.description}`)

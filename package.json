@@ -4,7 +4,7 @@
   "description": "a personal discord bot",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "discord.js": "^12.5.1",
     "forever": "^2.0.0",
     "node-gyp": "^5.0.7",
     "opusscript": "0.0.7",

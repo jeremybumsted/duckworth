@@ -1,0 +1,7 @@
+version: "3"
+services:
+  duckworth:
+    build: .
+    command: node index.js
+    ports:
+      - "8000:8000"
