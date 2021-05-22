@@ -10,17 +10,35 @@ module.exports = {
     const i = db.getPlayerId(message.author.id).then(id => {
       console.log("Let's check for a profile " + id)
       if(id === "noprofile") {
-        console.log("no matching Id")
         message.channel.send("Looks like you haven't created a profile yet. You can create one using `d!signup`")
       } else {
-        console.log("sending profile")
+        let avatarUri = "https://cdn.discordapp.com/avatars/"
+        let avatarPath = `${id[0]["playerId"]}/${id[0]["avatar"]}.gif?size=128`
+
+        const profile = { //Profile information collected from database.
+          name: `${id[0]["name"]}`, // Name from user profile
+          job: `${id[0]["character"]["job"]}`, // Job from user profile
+          hp: `${id[0]["stats"]["hp"]}`, // Current HP from user profile
+          mp: `${id[0]["stats"]["mp"]}`, // Current MP from user profile
+          //Stat block
+          str: `${id[0]["stats"]["str"]}`,
+          dex: `${id[0]["stats"]["dex"]}`,
+          vit: `${id[0]["stats"]["vit"]}`,
+          int: `${id[0]["stats"]["int"]}`,
+          //Character information
+          baseLevel: `${id[0]["character"]["baselvl"]}`,
+          jobLevel: `${id[0]["character"]["jlvl"]}`,
+          baseXp: `${id[0]["character"]["xp"]}`,
+          jobXp: `${id[0]["character"]["jxp"]}`,
+        }
+
         const embed = new Discord.MessageEmbed()
         .setColor('#5b6ee1')
-        .setTitle(id[0]["name"])
-        .setDescription(`**${id[0]["character"]["job"]}**\n**HP:** ${id[0]["stats"]["hp"]} **MP:** ${id[0]["stats"]["mp"]}`)
-        .setThumbnail(`https://cdn.discordapp.com/avatars/${id[0]["playerid"]}/${id[0]["avatar"]}.gif`)
-        .addField('STATS',`STR: ${id[0]["stats"]["str"]}\nDEX: ${id[0]["stats"]["dex"]}\nVIT: ${id[0]["stats"]["vit"]}\nINT: ${id[0]["stats"]["int"]}`,true)
-        .addField('CHARACTER',`Level: ${id[0]["character"]["baselvl"]}\nJob Level: ${id[0]["character"]["jlvl"]}\nXP: ${id[0]["character"]["xp"]}\nJob XP: ${id[0]["character"]["jxp"]}\n`,true)
+        .setTitle(profile.name)
+        .setDescription(`**${profile.job}**\n**HP:** ${profile.hp} **MP:** ${profile.mp}`)
+        .setThumbnail(avatarUri + avatarPath)
+        .addField('STATS',`STR: ${profile.str}\nDEX: ${profile.dex}}\nVIT: ${profile.vit}\nINT: ${profile.int}`,true)
+        .addField('CHARACTER',`Level: ${profile.baseLevel}\nJob Level: ${profile.jobLevel}\nXP: ${profile.baseXp}\nJob XP: ${profile.jobXp}\n`,true)
         message.channel.send(embed)
       }
     }).catch(err => console.error(err))
