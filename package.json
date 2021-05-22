@@ -10,6 +10,7 @@
     "lodash": "^4.17.21",
     "mongodb": "^3.6.3",
     "mongoist": "^2.5.3",
+    "needle": "^2.6.0",
     "node-gyp": "^5.0.7",
     "opusscript": "0.0.7",
     "prism-media": "^1.1.0",
