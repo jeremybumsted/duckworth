@@ -25,7 +25,7 @@ soundboard = soundboard.toString().replace(/.mp3/g, "");
 module.exports = {
   name:'play',
 	description: `Play a sound from the currently available sounds:\n\`\`\`${soundboard}\`\`\``,
-	usage: "`?play [soundname]`",
+	usage: "`d!play [soundname]`",
 	execute(message, args) {
     if (!message.guild) return;
     message.member.voiceChannel.join()
