@@ -7,7 +7,7 @@
     "discord.js": "^12.5.1",
     "forever": "^3.0.4",
     "handlebars": "^1.0.12",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mongodb": "^3.6.3",
     "mongoist": "^2.5.3",
     "node-gyp": "^5.0.7",
