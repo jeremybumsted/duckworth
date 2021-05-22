@@ -37,7 +37,7 @@ module.exports = {
         .setTitle(profile.name)
         .setDescription(`**${profile.job}**\n**HP:** ${profile.hp} **MP:** ${profile.mp}`)
         .setThumbnail(avatarUri + avatarPath)
-        .addField('STATS',`STR: ${profile.str}\nDEX: ${profile.dex}}\nVIT: ${profile.vit}\nINT: ${profile.int}`,true)
+        .addField('STATS',`STR: ${profile.str}\nDEX: ${profile.dex}\nVIT: ${profile.vit}\nINT: ${profile.int}`,true)
         .addField('CHARACTER',`Level: ${profile.baseLevel}\nJob Level: ${profile.jobLevel}\nXP: ${profile.baseXp}\nJob XP: ${profile.jobXp}\n`,true)
         message.channel.send(embed)
       }
