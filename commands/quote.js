@@ -1,15 +1,18 @@
 const Discord = require ('discord.js');
-const request = require('request');
+const needle = require('needle');
+
+
 module.exports = {
 	name: 'quote',
 	tag: 'fun',
 	description: 'Get a random quote from Kanye West',
-	usage: "d!quote replies with a random quote from Kanye",
+	usage: "d!quote\n Duckworth will reply to you with a random quote from Kanye",
 	execute(message, args) {
-      var kanye = request('https://api.kanye.rest?format=text', function(error, response, body) {
-				  message.channel.send(body);
-					if(error) console.log('error:', error);
-	        console.log('statusCode:', response && response.statusCode);
-        });
-	},
-};
+		needle.get('https://api.kanye.rest/?format=json', function(error, response){
+			if (!error && response.statusCode == 200)
+				result = response['body']
+				message.channel.send(result.quote)
+				
+		})
+	}
+}
