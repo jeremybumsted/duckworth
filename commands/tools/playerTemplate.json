@@ -1,0 +1,41 @@
+{
+  "playerId": "",
+  "avatar": "",
+  "name": "",
+  "character":{
+    "baselvl":1,
+    "xp":1,
+    "xptolevel": 100,
+    "job":"adventurer",
+    "jlvl": 1,
+    "jxp": 1,
+    "jxptolevel": 200,
+    "gold":100
+    },
+    "stats": {
+      "hp": 100,
+      "mp": 100,
+      "str":5,
+      "dex":5,
+      "vit":5,
+      "int":5
+      },
+    "skills": {
+      "primary": {
+      },
+      "secondary": {
+      }
+    },
+    "inventory": {
+      "consumables": {
+        "basic potion": 1
+        },
+      "weapons": {
+        "shortsword": 1
+        },
+      "armor": {
+        },
+      "misc": {
+        }
+      }
+}

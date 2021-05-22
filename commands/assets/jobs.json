@@ -1,0 +1,29 @@
+{
+  "joblist": [
+  		"adventurer",
+  		"magician",
+  		"cleric",
+  		"fighter",
+  		"rogue"
+  ],
+  "adventurer": {
+      "description": "Though new to the Dungeons, and maybe a bit confused about just *who* Duckworth is, Adventurer's seek fame, fortune, and to unlock the secrets of the dungeons!",
+      "skills": {
+        "Strong Attack": {
+          "level": 2,
+          "effect": "Next attack does an additional 25(+0.5/jlvl)% damage",
+          "cost": 20
+        },
+        "Tough Defense": {
+          "level": 4,
+          "effect": "Block the next attack, reducing all damage you would receive by 60%",
+          "cost": 45
+        },
+        "First Aid": {
+          "level": 10,
+          "effect": "Heal for 15 - 25% of your max hp",
+          "cost": 70
+        }
+      }
+  }
+}

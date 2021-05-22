@@ -3,3 +3,4 @@ node_modules/*
 assets/*
 *.png
 config.json
+commands/tools/mongo-config.json
