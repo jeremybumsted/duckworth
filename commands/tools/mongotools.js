@@ -1,4 +1,4 @@
-const connectionString = "mongodb+srv://jbumsted:ZioHGJCL2b8F7L0t@cluster0.ukfve.mongodb.net/duckworth?retryWrites=true&w=majority"
+const connectionString = process.env.CONNSTR
 const connectionOptions = "{ useNewUrlParser: true }"
 const mongoist = require('mongoist')
 const db = mongoist(connectionString, connectionOptions)
@@ -6,7 +6,7 @@ const playerTemplate = require('./playerTemplate.json')
 const {basereq, jobreq} = require('./xptable.json')
 const _ = require('lodash')
 
-function sleep(ms) {
+function sleep(ms) { //TODO: find a better way to do this
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -25,7 +25,9 @@ async function getPlayerId(user) { // get playerId object so that we can do stuf
   }).catch(err => console.error(err))
 }
 
-async function getMob(dungeon) {
+
+
+async function getMob(dungeon) { //get all mob objects for a dungeon 
   mobName = await db.mob.find({"dungeon": dungeon}).then(result => {
     mobName = _.sample(result)
     mobName = mobName.name
@@ -39,7 +41,7 @@ async function getMob(dungeon) {
   return mob
 }
 
-async function xpUpdate(player, xp) {
+async function xpUpdate(player, xp) { //Update xp values after events
   player[0]["character"]["xp"] += xp
   player[0]["character"]["jxp"] += xp
   if(player[0]["character"]["xp"] >= player[0]["character"]["xptolevel"]){
@@ -59,7 +61,7 @@ async function xpUpdate(player, xp) {
   })
 }
 
-async function rewardUpdate(id, reward) {
+async function rewardUpdate(id, reward) { //Apply rewards from events
 if (reward === "gold") {
   reward = Math.round(((Math.random() * 10) + (2 * id[0]["character"]["baselvl"])))
   gold = id[0]["character"]["gold"] + reward

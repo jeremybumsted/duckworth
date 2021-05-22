@@ -5,6 +5,7 @@ const jobs = require('./assets/jobs.json')
 
 module.exports = {
   name: 'skills',
+  tag: 'rpg',
   description: 'Manage your skills, including equipping secondary skills, passives, and reactions skills.',
   usage: "`d!skills` [view/equip]",
   execute(message, args) {

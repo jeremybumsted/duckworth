@@ -5,6 +5,7 @@ const jobs = require('./assets/jobs.json')
 
 module.exports = {
   name: 'job',
+  tag: 'rpg',
   description: 'Change your job, or look at more information for a job (Skills, etc). No argument will list all `available` jobs to you.',
   usage: "`d!job` `[change/view]` `[jobname]`",
   execute(message, args) {

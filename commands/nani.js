@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'nani',
+	tag: 'fun',
 	description: 'nani the fuck?',
 	usage: "This should be self explanatory...",
 	execute(message, args) {

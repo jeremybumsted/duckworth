@@ -27,6 +27,7 @@ function createEmbed(id, name) {
 
 module.exports = {
   name: 'inventory',
+  tag: 'rpg',
   description: 'Show your inventory by item category (Weapons, Armor, Consumables, Misc). Not specifying a category will show you *all* categories of items, but will not show all items',
   usage:'`d!inventory` [category]',
   execute(message, args) {

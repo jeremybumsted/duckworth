@@ -4,7 +4,8 @@ const db = require('./tools/mongotools.js')
 
 module.exports = {
   name: 'signup',
-  description: 'Register with Duckworth\'s Dungeoneering, Adventure.. Awaits!',
+  tag: 'rpg',
+  description: 'Register with Duckworth\'s Dungeoneering, Adventure Awaits!',
   usage: "d!signup",
   execute(message, args){
     db.createPlayer(message.author).then(result => {

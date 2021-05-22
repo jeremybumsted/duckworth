@@ -1,19 +1,46 @@
 const {prefix} = require('../config.json');
 const Discord = require('discord.js');
+const _ = require('lodash');
+
+function filterCommands(tag, commands) {
+  
+  let result = []
+  c = Object.fromEntries(commands)
+  filter = _.filter(c, {'tag': tag})
+
+    for (const i in filter) {
+     result.push(filter[i].name)
+    }
+
+  return result.join(`, `)
+}
+
+
 module.exports = {
+  
   name: 'help',
+  tag: 'system',
   description: "Show the help text for duckworth",
   aliases: ['commands'],
   usage: `\`${prefix}help or ${prefix}help [command]\``,
+  
+  
   execute(message, args) {
       const { commands } = message.client;
 
+      rpgTag = filterCommands('rpg', commands)
+      systemTag = filterCommands('system', commands)
+      funTag = filterCommands('fun', commands)
+
+    //tags: system, fun, rpg
       if (!args.length) {
         const embed = new Discord.MessageEmbed()
           .setColor('#5b6ee1')
-          .setTitle('Here\'s what I can do:')
-          .addField('Available Commands', commands.map(command => command.name).join(', '))
-          .addField('More Info', `Use \`${prefix}help [command name]\` to get more information on a specific command.`)
+          .setTitle('Available Commands:')
+          .setDescription(`Use \`${prefix}help [command name]\` to get more information on a specific command.`)
+          .addField('Fun', funTag)
+          .addField('RPG', rpgTag)
+          .addField('System', systemTag)
           .addField('Found a bug?', '[Submit an issue](https://git.io/JvvdO)');
         return message.channel.send(embed);
       }

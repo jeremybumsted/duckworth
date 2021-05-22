@@ -3,6 +3,7 @@ const db = require('./tools/mongotools.js')
 
 module.exports = {
   name: 'profile',
+  tag: 'rpg',
   description: 'Get your DD character profile',
   usage: "d!profile",
   execute(message, args) {

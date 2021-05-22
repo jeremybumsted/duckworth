@@ -5,6 +5,7 @@ const _ = require('lodash')
 
 module.exports = {
   name: 'explore',
+  tag: 'rpg',
   description: 'Explore the dungeon and battle randomly encountered monsters to get rewards.\n You have 30 seconds per action, not choosing an action will hurt ;)',
   cooldown: 60,
   usage: "`d!explore` [Floor]",

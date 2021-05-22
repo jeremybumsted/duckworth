@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'wed',
+	tag: 'fun',
 	description: 'It is wednesday my dudes',
 	usage: "aaaAAAAAAAAH",
 	execute(message, args) {

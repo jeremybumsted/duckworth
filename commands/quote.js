@@ -2,6 +2,7 @@ const Discord = require ('discord.js');
 const request = require('request');
 module.exports = {
 	name: 'quote',
+	tag: 'fun',
 	description: 'Get a random quote from Kanye West',
 	usage: "d!quote replies with a random quote from Kanye",
 	execute(message, args) {
